@@ -152,6 +152,120 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-hexo搭建github推送流程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/10/07/hexo%E6%90%AD%E5%BB%BAgithub%E6%8E%A8%E9%80%81%E6%B5%81%E7%A8%8B/">Hexo搭建github推送流程</a>
+    </h1>
+  
+
+        
+        <a href="/2022/10/07/hexo%E6%90%AD%E5%BB%BAgithub%E6%8E%A8%E9%80%81%E6%B5%81%E7%A8%8B/" class="archive-article-date">
+  	<time datetime="2022-10-07T14:43:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="安装nodejs"><a href="#安装nodejs" class="headerlink" title="安装nodejs"></a>安装nodejs</h2><p>官网：<a target="_blank" rel="noopener" href="https://nodejs.org/en/">https://nodejs.org/en/</a></p>
+<p> 下载：<a href="......%5CDownloads%5Cnode-v16.17.1-x64.msi">node-v16.17.1-x64.msi</a> </p>
+<p>安装好后 powershell中 <strong>node -v</strong> 查看node的版本 检查是否安装成功</p>
+<p>再检查npm包管理器  <strong>npm -v</strong></p>
+<h2 id="安装hexo框架"><a href="#安装hexo框架" class="headerlink" title="安装hexo框架"></a>安装hexo框架</h2><p>先利用淘宝的镜像安装cnpm（淘宝团队在国内的npm镜像）</p>
+<p> npm install -g cnpm –registry&#x3D;<a target="_blank" rel="noopener" href="http://registry.npm.taobao.org/">http://registry.npm.taobao.org</a></p>
+<p>命令 cnpm 即可检查是否安装成功</p>
+<p>再利用 cnpm install -g hexo-cli 安装hexo框架</p>
+<p>hexo -v验证安装是否成功</p>
+<h2 id="新建blog目录"><a href="#新建blog目录" class="headerlink" title="新建blog目录"></a>新建blog目录</h2><p>mkdir blog 在当前目录下新建blog目录  利用pwd 查看当前目录路径</p>
+<p>hexo init 初始化博客</p>
+<p>利用 dir 可以查看生成了什么内容</p>
+<h2 id="启动博客"><a href="#启动博客" class="headerlink" title="启动博客"></a>启动博客</h2><p>hexo s 启动博客 ：位于本地</p>
+<h2 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h2><p>hexo n “文章名”  新建博客 </p>
+<p>新建的博客位于 source&#x2F;_post&#x2F; 下</p>
+<h2 id="清除现有博客"><a href="#清除现有博客" class="headerlink" title="清除现有博客"></a>清除现有博客</h2><p>hexo clean </p>
+<h2 id="重新生成博客"><a href="#重新生成博客" class="headerlink" title="重新生成博客"></a>重新生成博客</h2><p>hexo g 				（generate）</p>
+<p>重新生成后要hexo s 来重新启动博客</p>
+<hr>
+<h2 id="以下为github-部署教程"><a href="#以下为github-部署教程" class="headerlink" title="以下为github 部署教程"></a>以下为github 部署教程</h2><h2 id="新建github仓库（Repository-）"><a href="#新建github仓库（Repository-）" class="headerlink" title="新建github仓库（Repository ）"></a>新建github仓库（Repository ）</h2><p>要求 仓库名 <strong>githubName.github.io</strong> 才可以</p>
+<h2 id="安装git部署插件（利用cnpm）"><a href="#安装git部署插件（利用cnpm）" class="headerlink" title="安装git部署插件（利用cnpm）"></a>安装git部署插件（利用cnpm）</h2><p>cnpm install –save hexo-deployer-git</p>
+<h2 id="编辑博客源目录下的Config-yml"><a href="#编辑博客源目录下的Config-yml" class="headerlink" title="编辑博客源目录下的Config.yml"></a>编辑博客源目录下的Config.yml</h2><p>在Deployment下的</p>
+<p>deploy:</p>
+<p>​	type: git </p>
+<p>​    repo: github仓库的http地址</p>
+<p>​	branch: main</p>
+<h2 id="部署到远端后"><a href="#部署到远端后" class="headerlink" title="部署到远端后"></a>部署到远端后</h2><p>部署成功后要输入 email 和 name</p>
+<p> git config –global user.email “<a href="mailto:&#53;&#52;&#51;&#x38;&#57;&#x30;&#49;&#56;&#x39;&#64;&#113;&#113;&#46;&#99;&#x6f;&#109;">&#53;&#52;&#51;&#x38;&#57;&#x30;&#49;&#56;&#x39;&#64;&#113;&#113;&#46;&#99;&#x6f;&#109;</a>“</p>
+<p> git config –global user.name “Dophin”</p>
+<h2 id="换hexo主题"><a href="#换hexo主题" class="headerlink" title="换hexo主题"></a>换hexo主题</h2><p>比如这个主题：<a target="_blank" rel="noopener" href="https://github.com/litten/hexo-theme-yilia">https://github.com/litten/hexo-theme-yilia</a></p>
+<p>下载主题至themes下：git clone <a target="_blank" rel="noopener" href="https://github.com/litten/hexo-theme-yilia.git">https://github.com/litten/hexo-theme-yilia.git</a> themes&#x2F;yilia</p>
+<p>修改config.yml 下的Extensions</p>
+<p>把theme: 加上要改的主题</p>
+<p>theme: yilia</p>
+<p>然后 hexo clean –》hexo g –》hexo s –》 hexo d 即可</p>
+<h2 id="查看别人blog的hexo主题"><a href="#查看别人blog的hexo主题" class="headerlink" title="查看别人blog的hexo主题"></a>查看别人blog的hexo主题</h2><p>右击，查看网页源码</p>
+<p>ctr + F 搜索关键字 theme</p>
+<p>比如这样：”theme-next gemini”</p>
+<h2 id="写文章-换主题-后的部署操作"><a href="#写文章-换主题-后的部署操作" class="headerlink" title="写文章+换主题 后的部署操作"></a>写文章+换主题 后的部署操作</h2><p>hexo clean –》hexo g –》hexo s –》 hexo d </p>
+<h2 id="遇到问题1-：can-not-read-a-block-mapping-entry"><a href="#遇到问题1-：can-not-read-a-block-mapping-entry" class="headerlink" title="遇到问题1 ：can not read a block mapping entry"></a>遇到问题1 ：can not read a block mapping entry</h2><p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20221007232226954.png" alt="image-20221007232226954"></p>
+<p>tags 这里要这样加</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hexo,github</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/10/07/hexo%E6%90%AD%E5%BB%BAgithub%E6%8E%A8%E9%80%81%E6%B5%81%E7%A8%8B/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -318,6 +432,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hexo,github</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
